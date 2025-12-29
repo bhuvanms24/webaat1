@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Grocery Shop</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+    }
+
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: white;
+  padding: 5px;
+}
+
+
+    nav {
+      background: #1b5e20;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1b5e20;
+    }
+
+    .cart {
+      background: white;
+      margin: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .cart h2 {
+      margin-bottom: 10px;
+    }
+
+    .cart ul {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    .cart ul li {
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    @media(max-width:600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://th.bing.com/th/id/OIP.SoRuu32zNj0AT7bzH28hQQHaFj?w=248&h=186&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+       alt="Grocery Logo"
+       class="logo">
+
+  <div>
+    <h1>Smart Grocery Shop</h1>
+    <p>Fresh groceries at your fingertips</p>
+  </div>
+</header>
+
+
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#cartSection">Cart</a></li>
+
+    <li><a href="#contactInfo">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="container">
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.0f7YJAAwUeQ8GimojYOJLgHaEJ?w=350&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Rice">
+    <h3>Rice (1kg)</h3>
+    <p class="price">₹60</p>
+    <button onclick="addToCart('Rice',60)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://static.vecteezy.com/system/resources/previews/030/674/032/large_2x/product-shots-of-milk-high-quality-4k-ultra-hd-h-free-photo.jpg" alt="Milk">
+    <h3>Milk (1L)</h3>
+    <p class="price">₹50</p>
+    <button onclick="addToCart('Milk',50)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.VX-fRronTA0KV1puV3fvkAHaE8?w=236&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Onion">
+    <h3>Onion</h3>
+    <p class="price">₹40</p>
+    <button onclick="addToCart('Onion',40)">Add to Cart</button>
+  </div>
+  <div class="card">
+    <img src="https://media.istockphoto.com/id/519663318/photo/tomatos-background.jpg?s=612x612&w=0&k=20&c=MBBgP3vrRgjlijOSfeOtbGjhu4B345lPL-FnwQWtJJU=" alt="tomato">
+    <h3>tomato</h3>
+    <p class="price">₹30</p>
+    <button onclick="addToCart('tomato',30)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.iknVRi_2c_75bblym4uLTwHaE8?w=268&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="cabbage">
+    <h3>cabbage</h3>
+    <p class="price">₹60</p>
+    <button onclick="addToCart('cabbage',60)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.Bxl42YtG9C6v3G8kbOktpQHaFj?w=252&h=189&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="green chilli">
+    <h3>green chilli</h3>
+    <p class="price">₹50</p>
+    <button onclick="addToCart('green chilli',50)">Add to Cart</button>
+  </div>
+
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.3NPf2NbM1Ufa4yY0WvIfTgHaHa?w=196&h=197&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Apple">
+    <h3>Apple</h3>
+    <p class="price">₹100</p>
+    <button onclick="addToCart('Apple',100)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.BJE4sKZ1SM-eMF6tvimiYQHaEK?w=275&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Mango">
+    <h3>Mango</h3>
+    <p class="price">₹160</p>
+    <button onclick="addToCart('Mango',160)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.ZEY2v5reN6Kp7dHW1WwGoQHaE8?w=247&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="banana">
+    <h3>banana</h3>
+    <p class="price">₹70</p>
+    <button onclick="addToCart('banana',70)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.naDaJP-qr6mdl_apDra7oQHaEK?w=309&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Coocking Oil">
+    <h3>Coocking Oil</h3>
+    <p class="price">₹140</p>
+    <button onclick="addToCart('Coocking Oil',140)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.ioqHo8fDyolaVuDx8hjSbQHaE8?w=276&h=184&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Ghee">
+    <h3>Ghee</h3>
+    <p class="price">₹600</p>
+    <button onclick="addToCart('Ghee',600)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.RevfonsbI1DNkrQ8Uc01WwHaGE?w=217&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Peanut">
+    <h3>Peanut</h3>
+    <p class="price">₹80</p>
+    <button onclick="addToCart('Peanut',80)">Add to Cart</button>
+  </div>
+
+
+</section>
+
+
+
+<section id="cartSection" class="cart">
+
+  <h2>Your Cart</h2>
+  <ul id="cartItems"></ul>
+  <p><strong>Total: ₹<span id="total">0</span></strong></p>
+  <button onclick="checkout()">Checkout</button>
+</section>
+
+<section id="contactInfo" class="contactInfo">
+<h2>Contact Information</h2>
+<p><strong>Email:</strong> msbhuvan248@gmail.com</p>
+<p><strong>Mobile:</strong> 9606770365</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Smart Grocery Shop | AAT1 Web Technologies</p>
+</footer>
+
+<script>
+  let total = 0;
+
+  function addToCart(item, price) {
+    const li = document.createElement('li');
+    li.textContent = item + ' - ₹' + price;
+    document.getElementById('cartItems').appendChild(li);
+    total += price;
+    document.getElementById('total').textContent = total;
+  }
+
+  function checkout() {
+    if (total === 0) {
+      alert('Your cart is empty');
+    } else {
+      alert('Order placed successfully! Total amount: ₹' + total);
+      document.getElementById('cartItems').innerHTML = '';
+      total = 0;
+      document.getElementById('total').textContent = total;
+    }
+  }
+</script>
+
+</body>
+</html>
